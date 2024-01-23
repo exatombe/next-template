@@ -1,15 +1,7 @@
 import { AccountCircle, Home, ShoppingBag } from "@mui/icons-material";
 import ResponsiveAppBar from "./Navbar";
-import { cookies } from 'next/headers'
-import { UsersGetUser } from "./api-wrapper";
 
 export default async function Pages() {
-  let JWT_TOKEN = cookies().get('JWT_TOKEN')
-  let id = cookies().get('id')
-  let user = undefined;
-  if(JWT_TOKEN && id){
-    user = await UsersGetUser(id.value, JWT_TOKEN.value)
-  }
   return (
     <>
     <ResponsiveAppBar pages={[
